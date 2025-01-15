@@ -44,7 +44,7 @@ products.forEach((products)=>{
             </select>
           </div>
 
-          ${products.extraInfoHTML()}//polomorphsim
+          ${products.extraInfoHTML()
 
           <div class="product-spacer"></div>
 
