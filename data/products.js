@@ -77,7 +77,7 @@ export function loadProductsFetch(){
         return new Clothing(productDetials);
       }
      return new Product(productDetials);
-    });
+    })
 
   })
   return prmoise;
@@ -98,10 +98,16 @@ export function loadProducts(fun){
       fun()
 
   });
+  
+  xhr.addEventListener('error',()=>{
+    console.log('unepected error. please try again later.')
+  })
+
   xhr.open('GET','https://supersimplebackend.dev/products')
 
   xhr.send();
 }
+
 
 
 // export const products = [
