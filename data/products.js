@@ -68,23 +68,40 @@ logThis('hello')
 
 export let products=[];
 
-export function loadProducts(fun){
-  const xhr=new  XMLHttpRequest();
-  xhr.addEventListener('load',()=>{
-    products=JSON.parse(xhr.response).map((productDetials)=>{
-        if(productDetials.type==='clothing'){
-          return new Clothing(productDetials);
-        }
-       return new Product(productDetials);
-      });
-      
-      fun()
+export function loadProductsFetch(){
+  const prmoise=fetch('https://supersimplebackend.dev/products').then((response)=>{
+    return response.json()
+  }).then((productsData)=>{
+    products=productsData.map((productDetials)=>{
+      if(productDetials.type==='clothing'){
+        return new Clothing(productDetials);
+      }
+     return new Product(productDetials);
+    });
 
-  });
-  xhr.open('GET','https://supersimplebackend.dev/products')
-
-  xhr.send();
+  })
+  return prmoise;
 }
+
+
+
+// export function loadProducts(fun){
+//   const xhr=new  XMLHttpRequest();
+//   xhr.addEventListener('load',()=>{
+//     products=JSON.parse(xhr.response).map((productDetials)=>{
+//         if(productDetials.type==='clothing'){
+//           return new Clothing(productDetials);
+//         }
+//        return new Product(productDetials);
+//       });
+      
+//       fun()
+
+//   });
+//   xhr.open('GET','https://supersimplebackend.dev/products')
+
+//   xhr.send();
+// }
 
 
 // export const products = [
