@@ -70,7 +70,6 @@ export let products=[];
 
 export function loadProducts(fun){
   const xhr=new  XMLHttpRequest();
-  xhr.open('GET','https://supersimplebackend.dev/products')
   xhr.addEventListener('load',()=>{
     products=JSON.parse(xhr.response).map((productDetials)=>{
         if(productDetials.type==='clothing'){
@@ -82,6 +81,8 @@ export function loadProducts(fun){
       fun()
 
   });
+  xhr.open('GET','https://supersimplebackend.dev/products')
+
   xhr.send();
 }
 
