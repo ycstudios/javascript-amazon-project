@@ -85,23 +85,23 @@ export function loadProductsFetch(){
 
 
 
-// export function loadProducts(fun){
-//   const xhr=new  XMLHttpRequest();
-//   xhr.addEventListener('load',()=>{
-//     products=JSON.parse(xhr.response).map((productDetials)=>{
-//         if(productDetials.type==='clothing'){
-//           return new Clothing(productDetials);
-//         }
-//        return new Product(productDetials);
-//       });
+export function loadProducts(fun){
+  const xhr=new  XMLHttpRequest();
+  xhr.addEventListener('load',()=>{
+    products=JSON.parse(xhr.response).map((productDetials)=>{
+        if(productDetials.type==='clothing'){
+          return new Clothing(productDetials);
+        }
+       return new Product(productDetials);
+      });
       
-//       fun()
+      fun()
 
-//   });
-//   xhr.open('GET','https://supersimplebackend.dev/products')
+  });
+  xhr.open('GET','https://supersimplebackend.dev/products')
 
-//   xhr.send();
-// }
+  xhr.send();
+}
 
 
 // export const products = [
