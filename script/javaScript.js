@@ -2,6 +2,8 @@ import { cart, addToCart } from "../data/cart.js";
 import { products,loadProducts } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
+
+
 loadProducts(renderProductsGrid);
 
 function renderProductsGrid(){
@@ -73,6 +75,7 @@ function updateCartQunatity(){
   })
 
   document.querySelector('.js-cart-quantity').innerHTML=cartQuantity
+  document.querySelector(".checkout").innerHTML=cartQuantity
 }
 
 document.querySelectorAll('.js-add-to-cart')
